@@ -9,13 +9,14 @@ class Model(nn.Module):
 
         self.gat_block = nn.ModuleList((
             nn.BatchNorm2d(input_dim),
-            GATBlock(input_dim, hidden_dim, stride=1, residual=True),
+            GATBlock(input_dim, hidden_dim, stride=1, residual=True)
         ))
 
         self.encoder_decoder = EncoderDecoder(input_dim=input_dim,
                                              hidden_dim=hidden_dim,
                                              output_dim=output_dim,
-                                             node_number=node_number)
+                                             node_number=node_number
+                                             )
 
     def forward(self, agent_feature, adjacency, steps):
         feature = agent_feature
