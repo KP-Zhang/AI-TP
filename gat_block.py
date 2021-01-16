@@ -23,9 +23,9 @@ class GraphAttentionLayer(nn.Module):
                                         self.out_features)).to(input.device)
 
         for step_i in range(input.shape[2]):
-            input_i = input[:, :, step_i, :]  # (N, C, V)
-            input_i = input_i.permute(0, 2, 1)  # (N, V, C)
-            adj_i = adj[:, step_i, :, :]  # (N, C, V)
+            input_i = input[:, :, step_i, :]
+            input_i = input_i.permute(0, 2, 1)
+            adj_i = adj[:, step_i, :, :]
             Wh = torch.matmul(input_i, self.W)
 
             batch_size = Wh.size()[0]
