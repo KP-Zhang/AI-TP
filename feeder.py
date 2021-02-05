@@ -14,9 +14,6 @@ class Feeder(torch.utils.data.Dataset):
             self.feature = np.array(hf["all_data"])
             self.adjacency = np.array(hf["all_adjacency"])
             self.mean_xy = np.array(hf["all_mean_xy"])
-            self.feature[:, [5], :, :] = self.feature[:, [5], :, :] / 23.68296
-            self.feature[:, [6], :, :] = self.feature[:, [6], :, :] / 2.5908
-            self.feature[:, [7], :, :] = self.feature[:, [7], :, :] / 95.3
 
     def __len__(self):
         return len(self.feature)
